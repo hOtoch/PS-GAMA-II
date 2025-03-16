@@ -1,0 +1,33 @@
+{
+  "generator-jhipster": {
+    "applicationType": "monolith",
+    "authenticationType": "jwt",
+    "baseName": "PSGama",
+    "buildTool": "maven",
+    "cacheProvider": "ehcache",
+    "clientFramework": "angular",
+    "clientTestFrameworks": [],
+    "clientTheme": "darkly",
+    "clientThemeVariant": "light",
+    "creationTimestamp": 1742160916702,
+    "databaseType": "sql",
+    "devDatabaseType": "postgresql",
+    "enableHibernateCache": false,
+    "enableTranslation": false,
+    "entities": [],
+    "feignClient": null,
+    "jhipsterVersion": "8.9.0",
+    "jwtSecretKey": "NDA0ZTIwZGZlMTZhMzJmZGMwM2IxZjJkOTc3MzE2MjY2NjQxOTVlN2UzZGZlZTEyZmM2YWJjOWYxOTczY2ZiZDk5NTNhN2E1ODRkYjAwZmQ2ZThlM2JlNTc2MWZjZmVhYjljN2M0MmU0YmI1ZWIxYThhNGEwNGMyNjgyZmI3MTI=",
+    "microfrontend": null,
+    "microfrontends": [],
+    "nativeLanguage": "pt-br",
+    "packageName": "com.hugootoch.myapp",
+    "prodDatabaseType": "postgresql",
+    "reactive": false,
+    "serverPort": null,
+    "serviceDiscoveryType": null,
+    "syncUserWithIdp": null,
+    "testFrameworks": [],
+    "withAdminUi": true
+  }
+}
