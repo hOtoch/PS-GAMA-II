@@ -1,0 +1,60 @@
+
+entity Aluno {
+	nome String required
+    idade Integer
+    email String
+    celular String
+}
+
+entity Professor {
+	nome String required
+    area AreaDoEnem required
+    email String
+}
+
+entity Turma {
+	nomeTurma String required
+    descricao String
+}
+
+entity Meta {
+	valor Integer required
+    area  AreaDoEnem required
+}
+
+// an ignored comment
+/** not an ignored comment */
+entity Localizacao {
+	endereco String required
+	cidade String required
+	estado String required
+	cep String required
+}
+dto Localizacao with mapstruct 
+
+enum AreaDoEnem {
+	LINGUAGENS, HUMANAS, NATUREZA, MATEMATICA
+}
+
+relationship OneToMany {
+ 	Aluno to Meta{aluno required}
+    Turma to Aluno
+}
+
+relationship OneToOne {
+	Aluno{localizacao} to Localizacao
+}
+
+//relationship ManyToOne {
+   // Uma turma é gerenciada por um professor
+//}
+
+relationship ManyToMany {
+  Turma to Professor 
+}
+
+
+// Set pagination options
+paginate Aluno, Meta, Professor, Turma with pagination
+dto Aluno, Meta, Professor, Turma,Localizacao with mapstruct
+service Aluno, Meta, Professor, Turma with serviceClass

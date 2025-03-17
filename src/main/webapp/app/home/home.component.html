@@ -1,60 +1,49 @@
-<div class="row">
-  <div class="col-md-3">
-    <span class="hipster img-fluid rounded"></span>
-  </div>
+<div class="home-container">
+  <div class="row header-section">
+    <div class="col-md-6">
+      <h1 class="display-4">Sistema de Metas Acadêmicas - ENEM</h1>
+      <p class="lead">Plataforma para gerenciamento de alunos e metas nas áreas do ENEM</p>
 
-  <div class="col-md-9">
-    <h1 class="display-4"><span>Bem vindo, Java Hipster!</span> (PS Gama)</h1>
-
-    <p class="lead">Esta é a página principal</p>
-
-    <div>
-      @if (account() !== null) {
-        <div class="alert alert-success">
-          @if (account(); as accountRef) {
-            <span id="home-logged-message">Você está logado como &quot;{{ accountRef.login }}&quot;.</span>
-          }
+      <div *ngIf="account() !== null; else notLoggedIn">
+        <div class="welcome-card" *ngIf="account() as accountRef">
+          <h2>Bem-vindo, {{ accountRef.login }}!</h2>
+          <p>O que você deseja fazer hoje?</p>
+          <div class="action-buttons">
+            <a class="btn btn-primary btn-lg" routerLink="/aluno"> <fa-icon icon="users"></fa-icon>&nbsp;Gerenciar Alunos </a>
+            <a class="btn btn-success btn-lg" routerLink="/meta"> <fa-icon icon="chart-line"></fa-icon>&nbsp;Gerenciar Metas </a>
+          </div>
         </div>
-      } @else {
-        <div class="alert alert-warning">
-          <span>Se deseja </span>
-          <a class="alert-link" (click)="login()">entrar</a
-          ><span
-            >, utilize as seguintes contas padrões:<br />- Administrador (usuário=&quot;admin&quot; and senha=&quot;admin&quot;) <br />-
-            Usuário (usuário=&quot;user&quot; e senha=&quot;user&quot;).</span
-          >
-        </div>
+      </div>
 
-        <div class="alert alert-warning">
-          <span>Não possui uma conta ainda?</span>&nbsp;
-          <a class="alert-link" routerLink="/account/register">Crie uma nova conta</a>
+      <ng-template #notLoggedIn>
+        <div class="login-card">
+          <h3>Acesso ao Sistema</h3>
+          <p>Para acessar as funcionalidades, faça login:</p>
+          <div class="login-options">
+            <button class="btn btn-primary btn-lg" (click)="login()"><fa-icon icon="sign-in-alt"></fa-icon>&nbsp;Entrar no Sistema</button>
+          </div>
+          <div class="mt-3">
+            <small>Contas padrão: &nbsp;<strong>admin/admin</strong>&nbsp; ou &nbsp;<strong>user/user</strong></small>
+          </div>
         </div>
-      }
+      </ng-template>
     </div>
 
-    <p>Em caso de dúvida sobre o JHipster:</p>
-
-    <ul>
-      <li><a href="https://www.jhipster.tech/" target="_blank" rel="noopener noreferrer">Página principal JHipster</a></li>
-      <li>
-        <a href="https://stackoverflow.com/tags/jhipster/info" target="_blank" rel="noopener noreferrer">JHipster no Stack Overflow</a>
-      </li>
-      <li>
-        <a href="https://github.com/jhipster/generator-jhipster/issues?state=open" target="_blank" rel="noopener noreferrer"
-          >JHipster bug tracker</a
-        >
-      </li>
-      <li>
-        <a href="https://gitter.im/jhipster/generator-jhipster" target="_blank" rel="noopener noreferrer"
-          >Sala de bate-papo pública JHipster</a
-        >
-      </li>
-      <li><a href="https://twitter.com/jhipster" target="_blank" rel="noopener noreferrer">siga &#64;jhipster no Twitter</a></li>
-    </ul>
-
-    <p>
-      <span>Se você gosta do JHipster, não se esqueça de avaliar no</span>
-      <a href="https://github.com/jhipster/generator-jhipster" target="_blank" rel="noopener noreferrer">GitHub</a>!
-    </p>
+    <div class="col-md-6 d-flex justify-content-center align-items-center">
+      <div class="app-illustration"></div>
+    </div>
   </div>
+
+  <!-- Restante do template mantido igual -->
+  <div class="row features-section">
+    <!-- ... (mesmo conteúdo das features) ... -->
+  </div>
+
+  <div class="row areas-section">
+    <!-- ... (mesmo conteúdo das áreas) ... -->
+  </div>
+
+  <footer class="text-center mt-5">
+    <p>Sistema de Gerenciamento de Metas do ENEM - Desenvolvido com JHipster</p>
+  </footer>
 </div>

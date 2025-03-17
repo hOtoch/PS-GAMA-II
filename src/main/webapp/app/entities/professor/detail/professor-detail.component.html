@@ -1,0 +1,55 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (professor(); as professorRef) {
+      <div>
+        <h2 data-cy="professorDetailsHeading"><span>Professor</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span>Código</span></dt>
+          <dd>
+            <span>{{ professorRef.id }}</span>
+          </dd>
+          <dt><span>Nome</span></dt>
+          <dd>
+            <span>{{ professorRef.nome }}</span>
+          </dd>
+          <dt><span>Area</span></dt>
+          <dd>
+            <span>{{
+              { null: '', LINGUAGENS: 'LINGUAGENS', HUMANAS: 'HUMANAS', NATUREZA: 'NATUREZA', MATEMATICA: 'MATEMATICA' }[
+                professorRef.area ?? 'null'
+              ]
+            }}</span>
+          </dd>
+          <dt><span>Email</span></dt>
+          <dd>
+            <span>{{ professorRef.email }}</span>
+          </dd>
+          <dt><span>Turma</span></dt>
+          <dd>
+            @for (turma of professorRef.turmas; track $index; let last = $last) {
+              <span>
+                <a [routerLink]="['/turma', turma.id, 'view']">{{ turma?.id }}</a
+                >{{ last ? '' : ', ' }}
+              </span>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Voltar</span>
+        </button>
+
+        <button type="button" [routerLink]="['/professor', professorRef.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Editar</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

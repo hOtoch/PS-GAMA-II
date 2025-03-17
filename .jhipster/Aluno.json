@@ -1,0 +1,52 @@
+{
+  "annotations": {
+    "changelogDate": "20250316220013"
+  },
+  "applications": "*",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "nome",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "idade",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "celular",
+      "fieldType": "String"
+    }
+  ],
+  "name": "Aluno",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "localizacao",
+      "relationshipName": "localizacao",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "meta",
+      "otherEntityRelationshipName": "aluno",
+      "relationshipName": "meta",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "turma",
+      "otherEntityRelationshipName": "aluno",
+      "relationshipName": "turma",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

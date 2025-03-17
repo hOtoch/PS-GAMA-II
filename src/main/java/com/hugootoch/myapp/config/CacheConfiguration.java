@@ -41,6 +41,15 @@ public class CacheConfiguration {
             createCache(cm, com.hugootoch.myapp.repository.UserRepository.USERS_BY_LOGIN_CACHE);
             createCache(cm, com.hugootoch.myapp.repository.UserRepository.USERS_BY_EMAIL_CACHE);
             createCache(cm, com.hugootoch.myapp.domain.Authority.class.getName());
+            createCache(cm, com.hugootoch.myapp.domain.Aluno.class.getName());
+            createCache(cm, com.hugootoch.myapp.domain.Aluno.class.getName() + ".metas");
+            createCache(cm, com.hugootoch.myapp.domain.Professor.class.getName());
+            createCache(cm, com.hugootoch.myapp.domain.Professor.class.getName() + ".turmas");
+            createCache(cm, com.hugootoch.myapp.domain.Turma.class.getName());
+            createCache(cm, com.hugootoch.myapp.domain.Turma.class.getName() + ".alunos");
+            createCache(cm, com.hugootoch.myapp.domain.Turma.class.getName() + ".professors");
+            createCache(cm, com.hugootoch.myapp.domain.Meta.class.getName());
+            createCache(cm, com.hugootoch.myapp.domain.Localizacao.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

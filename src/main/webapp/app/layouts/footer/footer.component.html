@@ -1,3 +1,56 @@
-<div class="footer">
-  <p>Este é o rodapé da página</p>
-</div>
+<footer class="app-footer">
+  <div class="container">
+    <div class="row footer-content">
+      <!-- Seção Informações -->
+      <div class="col-md-4 footer-section">
+        <h3 class="footer-title">Sistema de Metas ENEM</h3>
+        <p class="footer-text">
+          Plataforma de gestão acadêmica para o ENEM<br />
+          Desenvolvido com Angular & JHipster
+        </p>
+        <div class="footer-logo">
+          <img [src]="'content/images/enem-logo.png'" alt="Logo ENEM" class="img-fluid" />
+        </div>
+      </div>
+
+      <!-- Links Navegação -->
+      <div class="col-md-4 footer-section">
+        <h3 class="footer-title">Navegação</h3>
+        <ul class="footer-nav">
+          <li *ngFor="let link of navigationLinks">
+            <a [routerLink]="link.path" class="footer-link">
+              <fa-icon [icon]="link.icon" class="me-2"></fa-icon>
+              {{ link.label }}
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Contato -->
+      <div class="col-md-4 footer-section">
+        <h3 class="footer-title">Contato</h3>
+        <div class="footer-contact">
+          <div class="contact-item" *ngFor="let contact of contacts">
+            <fa-icon [icon]="contact.icon" class="contact-icon"></fa-icon>
+            <span class="contact-info">{{ contact.info }}</span>
+          </div>
+        </div>
+        <div class="social-icons">
+          <a *ngFor="let social of socialLinks" [href]="social.url" class="social-link" target="_blank" rel="noopener">
+            <fa-icon [icon]="social.icon"></fa-icon>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="row footer-copyright">
+      <div class="col-12 text-center">
+        <p class="copyright-text">
+          &copy; {{ currentYear }} Sistema de Metas ENEM
+          <span class="version">v{{ appVersion }}</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>

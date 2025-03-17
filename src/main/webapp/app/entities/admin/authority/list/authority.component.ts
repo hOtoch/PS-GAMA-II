@@ -3,10 +3,10 @@ import { ActivatedRoute, Data, ParamMap, Router, RouterModule } from '@angular/r
 import { Observable, Subscription, combineLatest, filter, tap } from 'rxjs';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
-import SharedModule from 'app/shared/shared.module';
-import { SortByDirective, SortDirective, SortService, type SortState, sortStateSignal } from 'app/shared/sort';
+import SharedModule from '../../../../../app/shared/shared.module';
+import { SortByDirective, SortDirective, SortService, type SortState, sortStateSignal } from '../../../../../app/shared/sort';
 import { FormsModule } from '@angular/forms';
-import { DEFAULT_SORT_DATA, ITEM_DELETED_EVENT, SORT } from 'app/config/navigation.constants';
+import { DEFAULT_SORT_DATA, ITEM_DELETED_EVENT, SORT } from '../../../../../app/config/navigation.constants';
 import { IAuthority } from '../authority.model';
 import { AuthorityService, EntityArrayResponseType } from '../service/authority.service';
 import { AuthorityDeleteDialogComponent } from '../delete/authority-delete-dialog.component';

@@ -1,0 +1,37 @@
+{
+  "annotations": {
+    "changelogDate": "20250316220014"
+  },
+  "applications": "*",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "nome",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "area",
+      "fieldType": "AreaDoEnem",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "LINGUAGENS,HUMANAS,NATUREZA,MATEMATICA"
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String"
+    }
+  ],
+  "name": "Professor",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "turma",
+      "otherEntityRelationshipName": "professor",
+      "relationshipName": "turma",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}
