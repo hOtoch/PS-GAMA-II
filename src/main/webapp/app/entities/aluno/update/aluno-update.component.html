@@ -46,7 +46,7 @@
           <select class="form-control" id="field_turma" data-cy="turma" name="turma" formControlName="turma" [compareWith]="compareTurma">
             <option [ngValue]="null"></option>
             @for (turmaOption of turmasSharedCollection; track $index) {
-              <option [ngValue]="turmaOption">{{ turmaOption.id }}</option>
+              <option [ngValue]="turmaOption">{{ turmaOption.nomeTurma }}</option>
             }
           </select>
         </div>

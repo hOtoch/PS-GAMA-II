@@ -49,7 +49,6 @@ public class CacheConfiguration {
             createCache(cm, com.hugootoch.myapp.domain.Turma.class.getName() + ".alunos");
             createCache(cm, com.hugootoch.myapp.domain.Turma.class.getName() + ".professors");
             createCache(cm, com.hugootoch.myapp.domain.Meta.class.getName());
-            createCache(cm, com.hugootoch.myapp.domain.Localizacao.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

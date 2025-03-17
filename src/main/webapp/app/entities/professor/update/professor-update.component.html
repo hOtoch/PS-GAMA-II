@@ -63,7 +63,7 @@
             [compareWith]="compareTurma"
           >
             @for (turmaOption of turmasSharedCollection; track $index) {
-              <option [ngValue]="turmaOption">{{ turmaOption.id }}</option>
+              <option [ngValue]="turmaOption">{{ turmaOption.nomeTurma }}</option>
             }
           </select>
         </div>
