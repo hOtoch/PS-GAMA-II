@@ -21,8 +21,6 @@ public class AlunoDTO implements Serializable {
 
     private String celular;
 
-    private LocalizacaoDTO localizacao;
-
     private TurmaDTO turma;
 
     public Long getId() {
@@ -65,14 +63,6 @@ public class AlunoDTO implements Serializable {
         this.celular = celular;
     }
 
-    public LocalizacaoDTO getLocalizacao() {
-        return localizacao;
-    }
-
-    public void setLocalizacao(LocalizacaoDTO localizacao) {
-        this.localizacao = localizacao;
-    }
-
     public TurmaDTO getTurma() {
         return turma;
     }
@@ -111,7 +101,6 @@ public class AlunoDTO implements Serializable {
             ", idade=" + getIdade() +
             ", email='" + getEmail() + "'" +
             ", celular='" + getCelular() + "'" +
-            ", localizacao=" + getLocalizacao() +
             ", turma=" + getTurma() +
             "}";
     }

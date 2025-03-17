@@ -326,7 +326,7 @@ class TurmaResourceIT {
         Turma partialUpdatedTurma = new Turma();
         partialUpdatedTurma.setId(turma.getId());
 
-        partialUpdatedTurma.descricao(UPDATED_DESCRICAO);
+        partialUpdatedTurma.nomeTurma(UPDATED_NOME_TURMA);
 
         restTurmaMockMvc
             .perform(

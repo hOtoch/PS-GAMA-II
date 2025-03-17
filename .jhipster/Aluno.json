@@ -27,12 +27,6 @@
   "pagination": "pagination",
   "relationships": [
     {
-      "otherEntityName": "localizacao",
-      "relationshipName": "localizacao",
-      "relationshipSide": "left",
-      "relationshipType": "one-to-one"
-    },
-    {
       "otherEntityName": "meta",
       "otherEntityRelationshipName": "aluno",
       "relationshipName": "meta",

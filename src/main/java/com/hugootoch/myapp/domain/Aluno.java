@@ -36,11 +36,6 @@ public class Aluno implements Serializable {
     @Column(name = "celular")
     private String celular;
 
-    @JsonIgnoreProperties(value = { "aluno" }, allowSetters = true)
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(unique = true)
-    private Localizacao localizacao;
-
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "aluno")
     @JsonIgnoreProperties(value = { "aluno" }, allowSetters = true)
     private Set<Meta> metas = new HashSet<>();
@@ -114,19 +109,6 @@ public class Aluno implements Serializable {
 
     public void setCelular(String celular) {
         this.celular = celular;
-    }
-
-    public Localizacao getLocalizacao() {
-        return this.localizacao;
-    }
-
-    public void setLocalizacao(Localizacao localizacao) {
-        this.localizacao = localizacao;
-    }
-
-    public Aluno localizacao(Localizacao localizacao) {
-        this.setLocalizacao(localizacao);
-        return this;
     }
 
     public Set<Meta> getMetas() {

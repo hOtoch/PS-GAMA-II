@@ -31,14 +31,6 @@
           <dd>
             <span>{{ alunoRef.celular }}</span>
           </dd>
-          <dt><span>Localizacao</span></dt>
-          <dd>
-            @if (aluno()!.localizacao) {
-              <div>
-                <a [routerLink]="['/localizacao', aluno()!.localizacao?.id, 'view']">{{ alunoRef.localizacao?.id }}</a>
-              </div>
-            }
-          </dd>
           <dt><span>Turma</span></dt>
           <dd>
             @if (aluno()!.turma) {

@@ -1,7 +1,6 @@
 package com.hugootoch.myapp.domain;
 
 import static com.hugootoch.myapp.domain.AlunoTestSamples.*;
-import static com.hugootoch.myapp.domain.LocalizacaoTestSamples.*;
 import static com.hugootoch.myapp.domain.MetaTestSamples.*;
 import static com.hugootoch.myapp.domain.TurmaTestSamples.*;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -25,18 +24,6 @@ class AlunoTest {
 
         aluno2 = getAlunoSample2();
         assertThat(aluno1).isNotEqualTo(aluno2);
-    }
-
-    @Test
-    void localizacaoTest() {
-        Aluno aluno = getAlunoRandomSampleGenerator();
-        Localizacao localizacaoBack = getLocalizacaoRandomSampleGenerator();
-
-        aluno.setLocalizacao(localizacaoBack);
-        assertThat(aluno.getLocalizacao()).isEqualTo(localizacaoBack);
-
-        aluno.localizacao(null);
-        assertThat(aluno.getLocalizacao()).isNull();
     }
 
     @Test

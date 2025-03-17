@@ -22,7 +22,6 @@ type AlunoFormGroupContent = {
   idade: FormControl<IAluno['idade']>;
   email: FormControl<IAluno['email']>;
   celular: FormControl<IAluno['celular']>;
-  localizacao: FormControl<IAluno['localizacao']>;
   turma: FormControl<IAluno['turma']>;
 };
 
@@ -49,7 +48,6 @@ export class AlunoFormService {
       idade: new FormControl(alunoRawValue.idade),
       email: new FormControl(alunoRawValue.email),
       celular: new FormControl(alunoRawValue.celular),
-      localizacao: new FormControl(alunoRawValue.localizacao),
       turma: new FormControl(alunoRawValue.turma),
     });
   }

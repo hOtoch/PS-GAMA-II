@@ -26,9 +26,6 @@
             <column name="celular" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="localizacao_id" type="bigint">
-                <constraints nullable="true" unique="true" uniqueConstraintName="ux_aluno__localizacao_id" />
-            </column>
             <column name="turma_id" type="bigint">
                 <constraints nullable="true" />
             </column>

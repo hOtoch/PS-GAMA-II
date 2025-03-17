@@ -7,12 +7,10 @@ import { finalize, map } from 'rxjs/operators';
 import SharedModule from 'app/shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { ILocalizacao } from 'app/entities/localizacao/localizacao.model';
-import { LocalizacaoService } from 'app/entities/localizacao/service/localizacao.service';
 import { ITurma } from 'app/entities/turma/turma.model';
 import { TurmaService } from 'app/entities/turma/service/turma.service';
-import { AlunoService } from '../service/aluno.service';
 import { IAluno } from '../aluno.model';
+import { AlunoService } from '../service/aluno.service';
 import { AlunoFormGroup, AlunoFormService } from './aluno-form.service';
 
 @Component({
@@ -24,19 +22,15 @@ export class AlunoUpdateComponent implements OnInit {
   isSaving = false;
   aluno: IAluno | null = null;
 
-  localizacaosCollection: ILocalizacao[] = [];
   turmasSharedCollection: ITurma[] = [];
 
   protected alunoService = inject(AlunoService);
   protected alunoFormService = inject(AlunoFormService);
-  protected localizacaoService = inject(LocalizacaoService);
   protected turmaService = inject(TurmaService);
   protected activatedRoute = inject(ActivatedRoute);
 
   // eslint-disable-next-line @typescript-eslint/member-ordering
   editForm: AlunoFormGroup = this.alunoFormService.createAlunoFormGroup();
-
-  compareLocalizacao = (o1: ILocalizacao | null, o2: ILocalizacao | null): boolean => this.localizacaoService.compareLocalizacao(o1, o2);
 
   compareTurma = (o1: ITurma | null, o2: ITurma | null): boolean => this.turmaService.compareTurma(o1, o2);
 
@@ -88,24 +82,10 @@ export class AlunoUpdateComponent implements OnInit {
     this.aluno = aluno;
     this.alunoFormService.resetForm(this.editForm, aluno);
 
-    this.localizacaosCollection = this.localizacaoService.addLocalizacaoToCollectionIfMissing<ILocalizacao>(
-      this.localizacaosCollection,
-      aluno.localizacao,
-    );
     this.turmasSharedCollection = this.turmaService.addTurmaToCollectionIfMissing<ITurma>(this.turmasSharedCollection, aluno.turma);
   }
 
   protected loadRelationshipsOptions(): void {
-    this.localizacaoService
-      .query({ filter: 'aluno-is-null' })
-      .pipe(map((res: HttpResponse<ILocalizacao[]>) => res.body ?? []))
-      .pipe(
-        map((localizacaos: ILocalizacao[]) =>
-          this.localizacaoService.addLocalizacaoToCollectionIfMissing<ILocalizacao>(localizacaos, this.aluno?.localizacao),
-        ),
-      )
-      .subscribe((localizacaos: ILocalizacao[]) => (this.localizacaosCollection = localizacaos));
-
     this.turmaService
       .query()
       .pipe(map((res: HttpResponse<ITurma[]>) => res.body ?? []))

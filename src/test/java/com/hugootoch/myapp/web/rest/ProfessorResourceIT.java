@@ -321,7 +321,7 @@ class ProfessorResourceIT {
         Professor partialUpdatedProfessor = new Professor();
         partialUpdatedProfessor.setId(professor.getId());
 
-        partialUpdatedProfessor.nome(UPDATED_NOME);
+        partialUpdatedProfessor.nome(UPDATED_NOME).area(UPDATED_AREA);
 
         restProfessorMockMvc
             .perform(

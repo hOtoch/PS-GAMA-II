@@ -31,7 +31,7 @@ public class Turma implements Serializable {
     private String descricao;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "turma")
-    @JsonIgnoreProperties(value = { "localizacao", "metas", "turma" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "metas", "turma" }, allowSetters = true)
     private Set<Aluno> alunos = new HashSet<>();
 
     @ManyToMany(fetch = FetchType.LAZY)

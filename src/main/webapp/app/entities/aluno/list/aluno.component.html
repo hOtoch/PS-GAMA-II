@@ -68,12 +68,6 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="localizacao.id">
-              <div class="d-flex">
-                <span>Localizacao</span>
-                <fa-icon class="p-1" icon="sort"></fa-icon>
-              </div>
-            </th>
             <th scope="col" jhiSortBy="turma.id">
               <div class="d-flex">
                 <span>Turma</span>
@@ -93,13 +87,6 @@
               <td>{{ aluno.idade }}</td>
               <td>{{ aluno.email }}</td>
               <td>{{ aluno.celular }}</td>
-              <td>
-                @if (aluno.localizacao) {
-                  <div>
-                    <a [routerLink]="['/localizacao', aluno.localizacao.id, 'view']">{{ aluno.localizacao.id }}</a>
-                  </div>
-                }
-              </td>
               <td>
                 @if (aluno.turma) {
                   <div>

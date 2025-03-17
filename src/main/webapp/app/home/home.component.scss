@@ -10,10 +10,16 @@ Main page styles
   margin-bottom: 3rem;
 }
 
+.icon-svg {
+  width: 20px;
+  height: 25px;
+  vertical-align: middle;
+}
+
 .app-illustration {
-  width: 100%;
+  width: 60%;
   height: 300px;
-  background: url('../../content/images/escola.jpg') no-repeat center center;
+  background: url('../../content/images/gama1.png') no-repeat center center;
   background-size: contain;
 }
 

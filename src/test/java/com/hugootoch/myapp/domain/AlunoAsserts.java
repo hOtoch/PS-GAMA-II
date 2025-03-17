@@ -62,7 +62,6 @@ public class AlunoAsserts {
     public static void assertAlunoUpdatableRelationshipsEquals(Aluno expected, Aluno actual) {
         assertThat(actual)
             .as("Verify Aluno relationships")
-            .satisfies(a -> assertThat(a.getLocalizacao()).as("check localizacao").isEqualTo(expected.getLocalizacao()))
             .satisfies(a -> assertThat(a.getTurma()).as("check turma").isEqualTo(expected.getTurma()));
     }
 }

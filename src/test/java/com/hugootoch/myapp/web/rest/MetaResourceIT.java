@@ -331,6 +331,8 @@ class MetaResourceIT {
         Meta partialUpdatedMeta = new Meta();
         partialUpdatedMeta.setId(meta.getId());
 
+        partialUpdatedMeta.valor(UPDATED_VALOR).area(UPDATED_AREA);
+
         restMetaMockMvc
             .perform(
                 patch(ENTITY_API_URL_ID, partialUpdatedMeta.getId())

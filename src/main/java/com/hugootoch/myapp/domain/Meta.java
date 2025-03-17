@@ -33,7 +33,7 @@ public class Meta implements Serializable {
 
     @ManyToOne(optional = false)
     @NotNull
-    @JsonIgnoreProperties(value = { "localizacao", "metas", "turma" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "metas", "turma" }, allowSetters = true)
     private Aluno aluno;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here

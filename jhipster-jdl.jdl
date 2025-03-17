@@ -22,15 +22,6 @@ entity Meta {
     area  AreaDoEnem required
 }
 
-// an ignored comment
-/** not an ignored comment */
-entity Localizacao {
-	endereco String required
-	cidade String required
-	estado String required
-	cep String required
-}
-dto Localizacao with mapstruct 
 
 enum AreaDoEnem {
 	LINGUAGENS, HUMANAS, NATUREZA, MATEMATICA
@@ -41,9 +32,6 @@ relationship OneToMany {
     Turma to Aluno
 }
 
-relationship OneToOne {
-	Aluno{localizacao} to Localizacao
-}
 
 //relationship ManyToOne {
    // Uma turma é gerenciada por um professor
@@ -56,5 +44,5 @@ relationship ManyToMany {
 
 // Set pagination options
 paginate Aluno, Meta, Professor, Turma with pagination
-dto Aluno, Meta, Professor, Turma,Localizacao with mapstruct
+dto Aluno, Meta, Professor, Turma with mapstruct
 service Aluno, Meta, Professor, Turma with serviceClass

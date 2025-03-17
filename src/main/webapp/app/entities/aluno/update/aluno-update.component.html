@@ -42,28 +42,11 @@
         </div>
 
         <div class="mb-3">
-          <label class="form-label" for="field_localizacao">Localizacao</label>
-          <select
-            class="form-control"
-            id="field_localizacao"
-            data-cy="localizacao"
-            name="localizacao"
-            formControlName="localizacao"
-            [compareWith]="compareLocalizacao"
-          >
-            <option [ngValue]="null"></option>
-            @for (localizacaoOption of localizacaosCollection; track $index) {
-              <option [ngValue]="localizacaoOption">{{ localizacaoOption.id }}</option>
-            }
-          </select>
-        </div>
-
-        <div class="mb-3">
           <label class="form-label" for="field_turma">Turma</label>
           <select class="form-control" id="field_turma" data-cy="turma" name="turma" formControlName="turma" [compareWith]="compareTurma">
             <option [ngValue]="null"></option>
             @for (turmaOption of turmasSharedCollection; track $index) {
-              <option [ngValue]="turmaOption">{{ turmaOption.nomeTurma }}</option>
+              <option [ngValue]="turmaOption">{{ turmaOption.id }}</option>
             }
           </select>
         </div>

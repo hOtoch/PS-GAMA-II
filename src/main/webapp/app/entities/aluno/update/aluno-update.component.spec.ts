@@ -4,12 +4,10 @@ import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Subject, from, of } from 'rxjs';
 
-import { ILocalizacao } from 'app/entities/localizacao/localizacao.model';
-import { LocalizacaoService } from 'app/entities/localizacao/service/localizacao.service';
 import { ITurma } from 'app/entities/turma/turma.model';
 import { TurmaService } from 'app/entities/turma/service/turma.service';
-import { IAluno } from '../aluno.model';
 import { AlunoService } from '../service/aluno.service';
+import { IAluno } from '../aluno.model';
 import { AlunoFormService } from './aluno-form.service';
 
 import { AlunoUpdateComponent } from './aluno-update.component';
@@ -20,7 +18,6 @@ describe('Aluno Management Update Component', () => {
   let activatedRoute: ActivatedRoute;
   let alunoFormService: AlunoFormService;
   let alunoService: AlunoService;
-  let localizacaoService: LocalizacaoService;
   let turmaService: TurmaService;
 
   beforeEach(() => {
@@ -44,31 +41,12 @@ describe('Aluno Management Update Component', () => {
     activatedRoute = TestBed.inject(ActivatedRoute);
     alunoFormService = TestBed.inject(AlunoFormService);
     alunoService = TestBed.inject(AlunoService);
-    localizacaoService = TestBed.inject(LocalizacaoService);
     turmaService = TestBed.inject(TurmaService);
 
     comp = fixture.componentInstance;
   });
 
   describe('ngOnInit', () => {
-    it('Should call localizacao query and add missing value', () => {
-      const aluno: IAluno = { id: 9303 };
-      const localizacao: ILocalizacao = { id: 19197 };
-      aluno.localizacao = localizacao;
-
-      const localizacaoCollection: ILocalizacao[] = [{ id: 19197 }];
-      jest.spyOn(localizacaoService, 'query').mockReturnValue(of(new HttpResponse({ body: localizacaoCollection })));
-      const expectedCollection: ILocalizacao[] = [localizacao, ...localizacaoCollection];
-      jest.spyOn(localizacaoService, 'addLocalizacaoToCollectionIfMissing').mockReturnValue(expectedCollection);
-
-      activatedRoute.data = of({ aluno });
-      comp.ngOnInit();
-
-      expect(localizacaoService.query).toHaveBeenCalled();
-      expect(localizacaoService.addLocalizacaoToCollectionIfMissing).toHaveBeenCalledWith(localizacaoCollection, localizacao);
-      expect(comp.localizacaosCollection).toEqual(expectedCollection);
-    });
-
     it('Should call Turma query and add missing value', () => {
       const aluno: IAluno = { id: 9303 };
       const turma: ITurma = { id: 31584 };
@@ -93,15 +71,12 @@ describe('Aluno Management Update Component', () => {
 
     it('Should update editForm', () => {
       const aluno: IAluno = { id: 9303 };
-      const localizacao: ILocalizacao = { id: 19197 };
-      aluno.localizacao = localizacao;
       const turma: ITurma = { id: 31584 };
       aluno.turma = turma;
 
       activatedRoute.data = of({ aluno });
       comp.ngOnInit();
 
-      expect(comp.localizacaosCollection).toContainEqual(localizacao);
       expect(comp.turmasSharedCollection).toContainEqual(turma);
       expect(comp.aluno).toEqual(aluno);
     });
@@ -176,16 +151,6 @@ describe('Aluno Management Update Component', () => {
   });
 
   describe('Compare relationships', () => {
-    describe('compareLocalizacao', () => {
-      it('Should forward to localizacaoService', () => {
-        const entity = { id: 19197 };
-        const entity2 = { id: 21366 };
-        jest.spyOn(localizacaoService, 'compareLocalizacao');
-        comp.compareLocalizacao(entity, entity2);
-        expect(localizacaoService.compareLocalizacao).toHaveBeenCalledWith(entity, entity2);
-      });
-    });
-
     describe('compareTurma', () => {
       it('Should forward to turmaService', () => {
         const entity = { id: 31584 };

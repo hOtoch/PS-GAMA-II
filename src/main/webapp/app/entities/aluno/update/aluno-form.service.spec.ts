@@ -24,7 +24,6 @@ describe('Aluno Form Service', () => {
             idade: expect.any(Object),
             email: expect.any(Object),
             celular: expect.any(Object),
-            localizacao: expect.any(Object),
             turma: expect.any(Object),
           }),
         );
@@ -40,7 +39,6 @@ describe('Aluno Form Service', () => {
             idade: expect.any(Object),
             email: expect.any(Object),
             celular: expect.any(Object),
-            localizacao: expect.any(Object),
             turma: expect.any(Object),
           }),
         );

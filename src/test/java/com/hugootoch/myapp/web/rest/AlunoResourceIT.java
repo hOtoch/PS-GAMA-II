@@ -304,7 +304,7 @@ class AlunoResourceIT {
         Aluno partialUpdatedAluno = new Aluno();
         partialUpdatedAluno.setId(aluno.getId());
 
-        partialUpdatedAluno.email(UPDATED_EMAIL);
+        partialUpdatedAluno.nome(UPDATED_NOME).celular(UPDATED_CELULAR);
 
         restAlunoMockMvc
             .perform(
